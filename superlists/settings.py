@@ -25,7 +25,7 @@ SECRET_KEY = 'x7fyf-moave(nyqn7z2$ax)11r!ww#eauf(-=vlp_ke29a$p#h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
