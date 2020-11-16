@@ -223,6 +223,6 @@ class ShareListTest(TestCase):
         user = User.objects.create(email='edith@example.com')
         list_ = List.objects.create()
 
-        self.client.post(f'/lists/{list_.id}/share', data={'email': user.email})
+        self.client.post(f'/lists/{list_.id}/share', data={'sharee': user.email})
 
         self.assertIn(user, list_.shared_with.all())

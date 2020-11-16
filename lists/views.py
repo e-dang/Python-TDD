@@ -36,7 +36,7 @@ def my_lists(request, email):
 
 def share_list(request, list_id):
     list_ = List.objects.get(id=list_id)
-    email = request.POST.get('email')
+    email = request.POST.get('sharee')
     if email:
         list_.shared_with.add(email)
     return redirect(list_)
