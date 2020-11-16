@@ -11,4 +11,10 @@
             <li><a href="{{ list.get_absolute_url }}">{{list.name}}</a></li>
         {% endfor %}
     </ul>
+
+    <ul>
+        {% for list in owner.shared_lists.all %}
+            <li>{{list.name}}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

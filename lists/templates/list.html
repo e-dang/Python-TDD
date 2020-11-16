@@ -5,9 +5,18 @@
 {% block form_action %}{% url 'view_list' list.id %}{% endblock %}
 
 {% block table %}
+    <form method="POST" action="{% url 'share_list' list.id %}">
+        <input name="sharee" placeholder="your-friend@example.com" type="text">
+        {% csrf_token %}
+    </form>
     <table id="id_list_table" class="table">
         {% for item in list.item_set.all %}
             <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+        {% endfor %}
+    </table>
+    <table id="list_sharee" class="table">
+        {% for user in list.shared_with.all %}
+            <tr><td>{{ forloop.counter }}: {{ user.email }}</td></tr>
         {% endfor %}
     </table>
 {% endblock %}
